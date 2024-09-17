@@ -55,6 +55,7 @@ await server.start();
 await connectDB();
  
 app.use(
+  "/graphql",
   cors({
     origin: 'http://localhost:3000',
     credentials: true
@@ -66,4 +67,4 @@ app.use(
 );
 
 await new Promise((resolve) => httpServer.listen({ port: 4000 }, resolve));
-console.log(`🚀 Server ready at http://localhost:4000`);
+console.log(`🚀 Server ready at http://localhost:4000/graphql`);

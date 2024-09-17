@@ -1,8 +1,8 @@
-import mongoose, { Mongoose } from "mongoose";
+import Mongoose from "mongoose";
 
 const transactionSchema = new Mongoose.Schema({
     userId: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: Mongoose.Schema.Types.ObjectId,
         ref: "User",
         required: true,
     },
@@ -34,5 +34,5 @@ const transactionSchema = new Mongoose.Schema({
 	},
 });
 
-const Transaction = mongoose.model("Transaction", transactionSchema);
+const Transaction = Mongoose.model("Transaction", transactionSchema);
 export default Transaction;

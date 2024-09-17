@@ -4,7 +4,7 @@ import bcrypt from 'bcryptjs';
 
 const userResolver = {
     Query: {
-        authUser: async(_, _, context) => {
+        authUser: async(_, __, context) => {
             try {
                 const user = await context.getUser();
                 return user;
@@ -70,7 +70,7 @@ const userResolver = {
                 throw new Error(err.message || "Internal Server error");
             }
         },
-        logout: async (_, _, context) => {
+        logout: async (_, __, context) => {
             try {
                 await context.logout();
                 req.session.destroy((err) => {
