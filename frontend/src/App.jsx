@@ -1,15 +1,24 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Route, Routes } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import LoginPage from "./pages/LoginPage";
+import SignUpPage from "./pages/SignUpPage";
+import TransactionPage from "./pages/TransactionPage";
+import NotFoundPage from "./pages/NotFoundPage";
+import Header from "./components/ui/Header";
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-    <h1 className='text-red-300'>Hello</h1></>
-  )
+	const authUser = true;
+	return (
+		<>
+			{authUser && <Header />}
+			<Routes>
+				<Route path='/' element={<HomePage />} />
+				<Route path='/login' element={<LoginPage />} />
+				<Route path='/signup' element={<SignUpPage />} />
+				<Route path='/transaction/:id' element={<TransactionPage />} />
+				<Route path='*' element={<NotFoundPage />} />
+			</Routes>
+		</>
+	);
 }
-
-export default App
+export default App;
